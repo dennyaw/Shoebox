@@ -14,11 +14,12 @@ class CreateProdukImagesTable extends Migration
     public function up()
     {
         Schema::create('produk_images', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('produk_id')->unsigned();
+            $table->id();
+            $table->unsignedBigInteger('produk_id');
             $table->string('foto')->nullable();
-            $table->foreign('produk_id')->references('id')->on('produk');
             $table->timestamps();
+            
+            $table->foreign('produk_id')->references('id')->on('produks');
         });
     }
 

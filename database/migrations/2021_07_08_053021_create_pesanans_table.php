@@ -14,7 +14,7 @@ class CreatePesanansTable extends Migration
     public function up()
     {
         Schema::create('pesanans', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('user_id');
             $table->date('tanggal');
             $table->string('status');

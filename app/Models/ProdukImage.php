@@ -13,6 +13,6 @@ class ProdukImage extends Model
     ];
 
     public function produk() {
-        return $this->belongsTo('App\Models\Produk','produk_id');
+        return $this->belongsTo(Produk::class,'produk_id');
     }
 }

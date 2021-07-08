@@ -14,7 +14,7 @@ class CreatePesananDetailsTable extends Migration
     public function up()
     {
         Schema::create('pesanan_details', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('id_produk');
             $table->integer('size_produk');
             $table->integer('id_pesanan');
