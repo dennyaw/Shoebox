@@ -106,6 +106,7 @@ class ProdukController extends Controller
             'harga' => 'required|numeric',
             'size_produk' => 'required'
         ]);
+        $request['size_produk'] = join(',',$request['size_produk']);
         $itemproduk = Produk::findOrFail($id);
         // kalo ga ada error page not found 404
         $slug = \Str::slug($request->slug_produk);//slug kita gunakan nanti pas buka produk
@@ -151,8 +152,7 @@ class ProdukController extends Controller
                                 ->first();
         if ($itemproduk) {
             $fileupload = $request->file('image');
-            $folder = 'assets/images';
-            $itemgambar = (new ImageController)->upload($fileupload, $itemuser, $folder);
+            $itemgambar = (new ImageController)->upload($fileupload, $itemuser);
             // simpan ke table produk_images
             $inputan = $request->all();
             $inputan['foto'] = $itemgambar->url;//ambil url file yang barusan diupload

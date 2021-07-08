@@ -33,23 +33,22 @@ class LoginController extends Controller
      *
      * @return void
      */
-    
-    public function authenticated(Request $request,$user)
+
+    public function authenticated(Request $request, $user)
     {
-        if($user->role='admin'){
-            return redirect()->route('admin');
-        }
-        else if($user->role='member'){
-            return redirect()->route('dash');
+        if ($user->role == 'admin') {
+            return redirect()->route('admin.index');
+        } else if ($user->role == 'member') {
+            return redirect()->route('landingpage');
         }
     }
 
-     public function __construct()
+    public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
 
-   /* public function showLoginForm()
+    /* public function showLoginForm()
     {
         $data = array('title' => 'Login');
         return view('auth.login', $data);

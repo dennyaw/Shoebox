@@ -42,7 +42,7 @@
 </form>
         </div>
     </header>
-    <script>function Alert(){alert("You have to Login first.");}</script>
+    {{-- <script>function Alert(){alert("You have to Login first.");}</script> --}}
     <nav class="flex-row nav-link">
         <a href="{{ URL::to('dash') }}" class="poppins">Home</a>
         <a href="{{ URL::to('member/women') }}" class="poppins">Women</a>

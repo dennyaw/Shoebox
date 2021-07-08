@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    protected $table = 'produk';
     protected $fillable = [
-        'id',
         'user_id',
         'nama_produk',
         'kategori_produk',
@@ -31,7 +29,7 @@ class Produk extends Model
     }
 
     public function user() {
-        return $this->belongsTo('App\Models\User', 'user_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function images() {

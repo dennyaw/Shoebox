@@ -14,13 +14,16 @@ class CreatePesananDetailsTable extends Migration
     public function up()
     {
         Schema::create('pesanan_details', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_produk');
+            $table->id();
+            $table->unsignedBigInteger('id_produk');
             $table->integer('size_produk');
-            $table->integer('id_pesanan');
+            $table->unsignedBigInteger('id_pesanan');
             $table->integer('jumlah');
             $table->integer('jumlah_harga');
             $table->timestamps();
+
+            $table->foreign('id_produk')->references('id')->on('produks');
+            $table->foreign('id_pesanan')->references('id')->on('pesanans');
         });
     }
 
