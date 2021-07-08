@@ -84,9 +84,9 @@
                 <input type="checkbox" name="size_produk[]" value="38"> 38
                 <input type="checkbox" name="size_produk[]" value="39"> 39
                 <input type="checkbox" name="size_produk[]" value="40"> 40
-                <input type="checkbox" name="size_produk[]" value="40"> 41
-                <input type="checkbox" name="size_produk[]" value="40"> 42
-                <input type="checkbox" name="size_produk[]" value="40"> 43
+                <input type="checkbox" name="size_produk[]" value="41"> 41
+                <input type="checkbox" name="size_produk[]" value="42"> 42
+                <input type="checkbox" name="size_produk[]" value="43"> 43
             </div>  
 
            <!-- <div class="form-group">

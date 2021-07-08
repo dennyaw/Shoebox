@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,14 +19,7 @@
     <link rel="stylesheet" href="{{ asset('index.css') }}">
     <link rel="stylesheet" href="{{ asset('footer.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>
-        mybutton = document.getElementById("myBtn");
-
-        function topFunction() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        }
-    </script>
+    
 </head>
 
 <body>
@@ -36,10 +29,11 @@
         <div class="flex-column header-user">
             @auth
                 <p class="poppins flex-row">
-                    <form action="{{route('logout')}}" method="post">
-                        @csrf
-                        <button type="submit">Logout</button>
-                    </form>
+                    <span>
+                        <a href="{{ route('logout') }}" class="flex-row">
+                            LogOut
+                        </a>
+                    </span>
                 </p>
             @else
                 <p class="poppins flex-row">
@@ -60,25 +54,15 @@
 
         </div>
     </header>
-    <script>
-        function Alert() {
-            alert("You have to Login first.");
-        }
-    </script>
+    
     <nav class="flex-row nav-link">
         <span class="poppins">Home</span>
-        <a onclick="Alert()" class="poppins">Women</a>
-        <a onclick="Alert()" class="poppins">Men</a>
-        <a onclick="Alert()" class="poppins">Cart</a>
-        <a onclick="Alert()" class="poppins">About Us</a>
+        <a href="{{route('men.index')}}" class="poppins">Women</a>
+        <a href="{{route('women.index')}}" class="poppins">Men</a>
+        <a href="#" class="poppins">Cart</a>
+        <a href="{{route('about')}}" class="poppins">About Us</a>
 
-    </nav>
-    <div class="flex-column container">
-
-        <div class="flex-row banner">
-            <button onclick="topFunction()" id="myBtn" class="poppins">Shop now!</button>
-        </div>
-    </div>
+    </nav>    
     <footer class="flex-column">
         <div class="flex-row foot-sosmed">
             <a href="http://instagram.com"><i class="fa fa-instagram" style="font-size:60px;color:#454545;"></i></a>
@@ -89,4 +73,24 @@
     </footer>
 </body>
 
-</html>
+</html> --}}
+
+@extends('user.master')
+@section('content')
+    <div class="flex-column container">
+        <div class="flex-row banner">
+            <button onclick="topFunction()" id="myBtn" class="poppins">Shop now!</button>
+        </div>
+    </div>
+@endsection
+
+@section('js')
+    <script>
+        mybutton = document.getElementById("myBtn");
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+@endsection

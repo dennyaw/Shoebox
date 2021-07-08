@@ -44,9 +44,10 @@ class ImageController extends Controller
         }
     }
     
-    public function upload($fileupload, $itemuser, $folder) {
-        $path = $fileupload->store('files');
-        $inputangambar['url'] = $path;
+    public function upload($fileupload, $itemuser) {
+        $path = $fileupload->store('public');
+        // public .. asjidhjashdksa.png
+        $inputangambar['url'] = explode('/', $path)[1];
         $inputangambar['user_id'] = $itemuser->id;
         return Image::create($inputangambar);
     }

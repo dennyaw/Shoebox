@@ -6,16 +6,16 @@
             <h1>Categories</h1>
             <div class="flex-column poppins list-categories">
                
-                <a href="{{ route('flats')}}" class="flex-row">
+                <a href="{{ route('women.flats')}}" class="flex-row">
                     <img src="img/icon/arrow-left.svg">
                     <span>Flats</span>
                 </a>
             
-                <a href="{{ route('heels')}}" class="flex-row">
+                <a href="{{ route('women.heels')}}" class="flex-row">
                     <img src="img/icon/arrow-left.svg">
                     <span>Heels</span>
                 </a>
-                <a href="{{ route('slipon')}}" class="flex-row">
+                <a href="{{ route('women.slipon')}}" class="flex-row">
                     <img src="img/icon/arrow-left.svg">
                     <span>Slip On</span>
                 </a>

@@ -17,10 +17,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->role == 'admin'){
-            return $next($request);
-        }else{
-            redirect()->route('landingpage');
+        if (Auth::check()) {
+            if (Auth::user()->role == 'admin') {
+                return $next($request);
+            }
         }
+        return redirect()->route('landingpage');
     }
 }

@@ -17,10 +17,13 @@ class MemberMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
         if (Auth::user()->role == 'member') {
             return $next($request);
         }else{
-            redirect()->route('admin');
+            return redirect()->route('admin.index');
         }
     }
 }

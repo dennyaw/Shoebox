@@ -9,7 +9,7 @@ class MenController extends Controller
     public function index()
     {
         $produk = Produk::orderBy('created_at', 'desc')->paginate(20);
-        $produk =Produk::where('kategori_produk', 'like', 'Men%')->get();
+        $produk =Produk::where('kategori_produk', 'like', 'Men%')->orderBy('created_at', 'desc')->get();
         $data = array('title' => 'Homepage',
                     'produk' => $produk);
         return view('user.men.index', $data);
@@ -20,7 +20,7 @@ class MenController extends Controller
         $produk =Produk::where('kategori_produk', 'like', 'Men Sneakers')->get();
         $data = array('title' => 'Homepage',
                     'produk' => $produk);
-        return view('user.men.sneakers', $data);
+        return view('user.men.index', $data);
     }
 
     public function boots()
@@ -29,7 +29,7 @@ class MenController extends Controller
         $produk =Produk::where('kategori_produk', 'like', 'Men Boots')->get();
         $data = array('title' => 'Homepage',
                     'produk' => $produk);
-        return view('user.men.boots', $data);
+        return view('user.men.index', $data);
     }
 
     public function sandals()
@@ -38,7 +38,14 @@ class MenController extends Controller
         $produk =Produk::where('kategori_produk', 'like', 'Men Sandals')->get();
         $data = array('title' => 'Homepage',
                     'produk' => $produk);
-        return view('user.men.sandals', $data);
+        return view('user.men.index', $data);
     }
 
+    public function show($id)
+    {
+        $produk = Produk::findOrFail($id);
+        $data = array('title' => 'Foto Produk',
+                'produk' => $produk);
+        return view('user.men.show', $data);
+    }
 }
